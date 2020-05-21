@@ -20,7 +20,7 @@ export const PlayerSchema = new Schema({
     },
     isCoach: {
         type: Boolean,
-        required: true
+        required: false
     },
     team: {
         type: String,
