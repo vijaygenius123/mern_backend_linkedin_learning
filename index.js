@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
-
+import cors from 'cors'
 import routes from './routes/soccerRoutes'
 const app = express();
 const PORT = process.env.PORT | 8080;
@@ -17,6 +17,8 @@ mongoose.connect('mongodb://localhost/soccerDB', {
 //bodyParser Setup
 app.use(bodyParser.urlencoded({ extented: true }));
 app.use(bodyParser.json())
+
+app.use(cors())
 
 routes(app);
 
