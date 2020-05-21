@@ -15,3 +15,14 @@ export const addNewPlayer = (req, res) => {
         }
     });
 }
+
+export const getPlayers = (req, res) => {
+    Player.find({}, (err, players) => {
+        if (err) {
+            res.send(err)
+        }
+        else {
+            res.send(players)
+        }
+    })
+}

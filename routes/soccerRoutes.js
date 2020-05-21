@@ -1,7 +1,10 @@
-import { addNewPlayer } from '../controllers/playerController'
+import { addNewPlayer, getPlayers } from '../controllers/playerController'
 
 const routes = app => {
-    app.route('/players').post(addNewPlayer)
+    app.route('/players')
+        .get(getPlayers)
+        .post(addNewPlayer)
+
 }
 
 export default routes
