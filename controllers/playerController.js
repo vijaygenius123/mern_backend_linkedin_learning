@@ -26,3 +26,15 @@ export const getPlayers = (req, res) => {
         }
     })
 }
+
+export const getPlayerWithID = (req, res) => {
+    console.log(req.params.playerID);
+    Player.findById(req.params.playerID, (err, player) => {
+        if (err) {
+            res.send(err)
+        }
+        else {
+            res.send(player)
+        }
+    })
+}
