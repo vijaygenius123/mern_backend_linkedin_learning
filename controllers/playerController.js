@@ -38,3 +38,15 @@ export const getPlayerWithID = (req, res) => {
         }
     })
 }
+
+export const updatePlayerById = (req, res) => {
+    console.log(req.params.playerID);
+    Player.findByIdAndUpdate(req.params.playerID, req.body, { new: true }, (err, player) => {
+        if (err) {
+            res.send(err)
+        }
+        else {
+            res.send(player)
+        }
+    })
+}

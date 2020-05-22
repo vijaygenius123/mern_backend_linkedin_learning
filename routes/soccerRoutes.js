@@ -1,4 +1,4 @@
-import { addNewPlayer, getPlayers, getPlayerWithID } from '../controllers/playerController'
+import { addNewPlayer, getPlayers, getPlayerWithID, updatePlayerById } from '../controllers/playerController'
 
 const routes = app => {
     app.route('/players')
@@ -6,6 +6,7 @@ const routes = app => {
         .post(addNewPlayer)
     app.route('/player/:playerID')
         .get(getPlayerWithID)
+        .put(updatePlayerById)
 
 }
 
