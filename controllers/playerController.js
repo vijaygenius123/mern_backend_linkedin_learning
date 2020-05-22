@@ -28,7 +28,6 @@ export const getPlayers = (req, res) => {
 }
 
 export const getPlayerWithID = (req, res) => {
-    console.log(req.params.playerID);
     Player.findById(req.params.playerID, (err, player) => {
         if (err) {
             res.send(err)
@@ -40,13 +39,24 @@ export const getPlayerWithID = (req, res) => {
 }
 
 export const updatePlayerById = (req, res) => {
-    console.log(req.params.playerID);
     Player.findByIdAndUpdate(req.params.playerID, req.body, { new: true }, (err, player) => {
         if (err) {
             res.send(err)
         }
         else {
             res.send(player)
+        }
+    })
+}
+
+
+export const deletePlayerById = (req, res) => {
+    Player.remove({ _id: req.params.playerID }, (err, player) => {
+        if (err) {
+            res.send(err)
+        }
+        else {
+            res.json({ 'message': 'Player deleted successfully' })
         }
     })
 }
